@@ -1,0 +1,40 @@
+# Pragya Configuration
+# -------------------
+
+# LLM Settings (Ollama)
+llm:
+  model: "llama3:latest"
+  base_url: "http://localhost:11434"
+  temperature: 0.3
+  max_tokens: 1024
+  context_window: 4096
+  stream: true
+
+# Embedding Settings
+embedding:
+  model: "all-MiniLM-L6-v2"
+  batch_size: 32
+  dimension: 384
+
+# Chunking Settings
+chunking:
+  chunk_size: 512
+  chunk_overlap: 64
+
+# Retrieval Settings
+retrieval:
+  top_k: 5
+  score_threshold: 0.3
+
+# Vector Store
+vector_store:
+  persist_directory: "./data/chroma_db"
+
+# Paths
+paths:
+  upload_dir: "./data/uploads"
+
+# Readability
+readability:
+  min_flesch_score: 60
+  max_sentence_length: 25
