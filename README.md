@@ -13,6 +13,8 @@ A fully local RAG (Retrieval-Augmented Generation) system that helps you underst
 - **🔬 Research QA** – Ask technical questions, get precise paper-backed answers
 - **📋 Smart Summaries** – Structured overviews with key findings and implications
 - **📄 Section-Aware Parsing** – Understands Abstract, Methodology, Results, etc.
+- **💬 Per-Paper Chat History** – Each paper gets its own isolated, persistent conversation
+- **🔍 Clickable Jargon Highlighting** – Technical terms are highlighted and clickable for instant Google search
 - **🔒 100% Local** – No data leaves your machine. Ever.
 - **⚡ Streaming Responses** – See answers appear in real-time
 
@@ -26,6 +28,8 @@ User Question → Query Embedding → ChromaDB Search → Prompt Router
                                           Ollama (Llama3/Mistral)
                                                       ↓
                                           Layman Layer → Streamlit UI
+                                                      ↓
+                                          Chat Store (per-paper JSON)
 ```
 
 ## 🚀 Quick Start
@@ -56,6 +60,25 @@ streamlit run app.py
 2. Select your mode (Layman / QA / Summary)
 3. Ask questions in the chat!
 
+## 💬 Per-Paper Chat History
+
+Each paper maintains its own **isolated conversation** that is automatically saved and restored:
+
+- **Automatic saving** – Chats are persisted to disk after every response
+- **Seamless switching** – Switching papers in the sidebar instantly loads that paper's chat
+- **Persistent across sessions** – Close and reopen the app; your conversations are still there
+- **Clear chat** – Use the 🗑️ Clear Chat button in the sidebar to reset a paper's conversation
+- **Storage** – Chats are stored as JSON files in `data/chat_history/`
+
+## 🔍 Clickable Jargon Highlighting
+
+Technical terms detected in assistant responses are **highlighted as clickable pills**:
+
+- Clicking a highlighted term opens a **Google search** in a new tab
+- Terms are detected from a curated jargon dictionary + LLM-identified definitions
+- Each term is highlighted **only once** (first occurrence) to keep responses clean
+- Jargon highlights are **persisted** with the chat history and restored on reload
+
 ## 📁 Project Structure
 
 ```
@@ -68,15 +91,16 @@ Pragya/
 │   ├── chunker.py            # Smart recursive chunking
 │   ├── embeddings.py         # Sentence Transformers pipeline
 │   ├── vector_store.py       # ChromaDB wrapper
-│   ├── retriever.py          # Similarity search
 │   ├── llm_client.py         # Ollama API client
 │   ├── prompt_templates.py   # QA / Layman / Summary prompts
-│   ├── layman_layer.py       # Jargon detection + readability
+│   ├── layman_layer.py       # Jargon detection + readability scoring
+│   ├── chat_store.py         # Per-paper chat persistence (JSON)
 │   ├── rag_pipeline.py       # End-to-end orchestrator
 │   └── utils.py              # Helpers
 └── data/
     ├── uploads/              # Uploaded PDFs
-    └── chroma_db/            # Vector store persistence
+    ├── chroma_db/            # Vector store persistence
+    └── chat_history/         # Per-paper chat logs (JSON)
 ```
 
 ## ⚙️ Configuration
@@ -85,7 +109,8 @@ Edit `config.yaml` to customize:
 
 | Setting | Default | Description |
 |---------|---------|-------------|
-| `llm.model` | `llama3:8b-instruct-q4_K_M` | Ollama model name |
+| `llm.model` | `llama3:latest` | Ollama model name |
+| `llm.context_window` | `4096` | Context window size (lower = less RAM) |
 | `chunking.chunk_size` | `512` | Characters per chunk |
 | `retrieval.top_k` | `5` | Number of chunks retrieved |
 | `readability.min_flesch_score` | `60` | Minimum readability for layman mode |
