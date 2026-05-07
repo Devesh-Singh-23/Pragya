@@ -5,13 +5,15 @@ Streamlit UI entry point.
 """
 
 import os
+import re
 import tempfile
 import time
+import urllib.parse
 
 import streamlit as st
 
 from pragya.rag_pipeline import PragyaPipeline
-from pragya.layman_layer import calculate_readability
+from pragya.layman_layer import calculate_readability, detect_jargon
 from pragya.chat_store import load_chat, save_chat, delete_chat
 
 
@@ -102,6 +104,26 @@ st.markdown("""
     .badge-moderate { background: rgba(236, 201, 75, 0.2); color: #ecc94b; border: 1px solid rgba(236, 201, 75, 0.4); }
     .badge-complex { background: rgba(245, 101, 101, 0.2); color: #fc8181; border: 1px solid rgba(245, 101, 101, 0.4); }
     
+    /* Jargon highlight */
+    .jargon-term {
+        background: rgba(236, 153, 75, 0.15);
+        border: 1px solid rgba(236, 153, 75, 0.45);
+        border-radius: 4px;
+        padding: 0.05em 0.4em;
+        color: #f6ad55;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+    .jargon-term:hover {
+        background: rgba(236, 153, 75, 0.35);
+        box-shadow: 0 0 8px rgba(236, 153, 75, 0.3);
+        color: #fbd38d;
+        text-decoration: none;
+    }
+    
     /* Mode selector */
     .mode-active {
         background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
@@ -163,6 +185,43 @@ def init_session_state():
 
 
 init_session_state()
+
+
+def highlight_jargon(text: str, jargon_terms: list[str]) -> str:
+    """Replace jargon terms in text with clickable highlighted HTML links.
+    
+    Each term becomes a pill that opens a Google Scholar search in a new tab.
+    """
+    if not jargon_terms or not text:
+        return text
+    
+    # Sort by length descending so longer terms get matched first
+    # (e.g. "neural network" before "network")
+    sorted_terms = sorted(jargon_terms, key=len, reverse=True)
+    
+    for term in sorted_terms:
+        # Match the term only when it's NOT already inside an <a> tag
+        # Uses a negative lookbehind for '>' and negative lookahead for '</a>'
+        pattern = re.compile(
+            r'(?<!["\w>])(' + re.escape(term) + r')(?![^<]*</a>)',
+            re.IGNORECASE,
+        )
+        
+        def _replace_keep_case(match, _term=term):
+            original = match.group(1)
+            url = (
+                "https://www.google.com/search?q="
+                + urllib.parse.quote_plus(original)
+            )
+            return (
+                f'<a class="jargon-term" href="{url}" '
+                f'target="_blank" title="Search: {original}">'
+                f'{original}</a>'
+            )
+        
+        text = pattern.sub(_replace_keep_case, text, count=1)
+    
+    return text
 
 
 def switch_paper_chat(new_paper_id: str, new_paper_title: str):
@@ -365,7 +424,14 @@ else:
 # Display chat history
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
+        content = msg["content"]
+        
+        # Highlight jargon in assistant messages
+        if msg["role"] == "assistant" and msg.get("jargon"):
+            content = highlight_jargon(content, msg["jargon"])
+            st.markdown(content, unsafe_allow_html=True)
+        else:
+            st.markdown(content)
         
         # Show readability badge for assistant layman responses
         if msg["role"] == "assistant" and msg.get("readability"):
@@ -421,6 +487,16 @@ if prompt := st.chat_input(
             # Stream the response
             response_text = st.write_stream(result["response"])
             
+            # Detect jargon in the response itself
+            jargon_in_response = detect_jargon(response_text) if response_text else []
+            # Merge with jargon from retrieved context
+            all_jargon = sorted(set(jargon_in_response + (result.get("jargon") or [])))
+            
+            # Re-render with highlighted jargon (replaces the plain streamed text)
+            if all_jargon and response_text:
+                highlighted = highlight_jargon(response_text, all_jargon)
+                st.markdown(highlighted, unsafe_allow_html=True)
+            
             # Calculate readability for layman mode
             readability = None
             if st.session_state.mode == "layman" and response_text:
@@ -446,17 +522,13 @@ if prompt := st.chat_input(
                         )
                         st.caption(src["text_preview"])
             
-            # Show jargon detected
-            if result.get("jargon") and st.session_state.mode == "layman":
-                with st.expander("🔍 Technical terms detected", expanded=False):
-                    st.caption(", ".join(result["jargon"]))
-            
-            # Save to history
+            # Save to history (with jargon for re-highlighting on replay)
             st.session_state.messages.append({
                 "role": "assistant",
                 "content": response_text,
                 "sources": result["sources"],
                 "readability": readability,
+                "jargon": all_jargon,
             })
             
             # Persist chat to disk

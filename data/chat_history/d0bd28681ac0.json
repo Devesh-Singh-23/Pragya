@@ -1,7 +1,7 @@
 {
   "paper_id": "d0bd28681ac0",
   "paper_title": "Global Warming: Causes, Effects and Solutions",
-  "updated_at": "2026-05-07T21:44:49.630903",
+  "updated_at": "2026-05-07T23:08:21.839047",
   "messages": [
     {
       "role": "user",
@@ -54,6 +54,54 @@
           "score": 0.653,
           "pages": "[1]"
         }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "give me some technical terms used in this"
+    },
+    {
+      "role": "assistant",
+      "content": "Based on the provided context from the research paper \"Global Warming: Causes, Effects and Solutions\", some technical terms used are:\n\n* Aerosols [8]: Referring to pollutants produced by various sorts of transport that are either aerosols from the outset or are transformed by chemical reactions in the atmosphere to form aerosols.\n* Greenhouse gases: Mentioned as a hazard, these gases are chiefly a result of various industrial processes and refrigeration [5], [6]. They are continuously causing an increase in the earth's temperature, contributing to global warming.\n* Solar radiation: Referring to incoming solar radiation that warms the interior of a car or greenhouse.\n* Thermal radiation: Mentioned as outgoing thermal radiation that is trapped inside the closed windows of a car or greenhouse, basically warming up the space.\n\nThese technical terms are used in the context of discussing the causes and effects of global warming.",
+      "sources": [
+        {
+          "section": "IX. Conclusion",
+          "section_type": "BODY",
+          "text_preview": "levels will devastate agricultural and fishing activities.\nTo embark upon these problems, some remedial steps\nmust be timely taken which include but a...",
+          "score": 0.222,
+          "pages": "[7]"
+        },
+        {
+          "section": "III. Greenhouse Gases: A Hazard",
+          "section_type": "BODY",
+          "text_preview": "sorts of transport produce a rich mixture of pollutants\nthat are either aerosols from the outset or are\ntransformed by chemical reactions in the atmos...",
+          "score": 0.209,
+          "pages": "[2, 3]"
+        },
+        {
+          "section": "III. Greenhouse Gases: A Hazard",
+          "section_type": "BODY",
+          "text_preview": "are chiefly a result of various industrial processes and\nrefrigeration [5], [6]. Fig.4 shows pictorially the\ndistribution of greenhouse gases. These g...",
+          "score": 0.208,
+          "pages": "[2, 3]"
+        },
+        {
+          "section": "III. Greenhouse Gases: A Hazard",
+          "section_type": "BODY",
+          "text_preview": "Fig. 2 Plants embodied in a greenhouse [3]\nA similar phenomenon takes place in a car which is\nparked outside on a cold sunny day. Incoming solar\nradia...",
+          "score": 0.199,
+          "pages": "[2, 3]"
+        },
+        {
+          "section": "VIII. Other Solutions",
+          "section_type": "BODY",
+          "text_preview": "[8] “Causes\nof\nGlobal\nWarming”.\nhttp://www.wmo.int/pages/themes/climate/causes\n_of_global_warming.php, Accessed 29 May 2015.\n[9] “Global\nTemperatures”...",
+          "score": 0.197,
+          "pages": "[6, 7]"
+        }
+      ],
+      "jargon": [
+        "distribution"
       ]
     }
   ]

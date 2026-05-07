@@ -1,0 +1,63 @@
+{
+  "paper_id": "3ce71bdae83e",
+  "paper_title": "ScienceDirect",
+  "updated_at": "2026-05-07T23:07:41.468090",
+  "messages": [
+    {
+      "role": "user",
+      "content": "give me some technical terms used in this paper"
+    },
+    {
+      "role": "assistant",
+      "content": "Based on the provided context from the research paper, here are some technical terms used:\n\n1. **Precision Matrix**: This is a measure that calculates the model's accuracy out of the predicted positives (Equation 2).\n2. **Recall Matrix**: This measures how many predictions our model labels correctly as positives, considering the high cost associated with False Negatives (FN) (Equation 3).\n3. **F1 Score**: This provides a cumulative measure by combining recall and precision (Equation 4).\n4. **True Positive (TP)**: A correct positive prediction made by the model.\n5. **True Negative (TN)**: A correct negative prediction made by the model.\n6. **False Positive (FP)**: An incorrect positive prediction made by the model.\n7. **False Negative (FN)**: An incorrect negative prediction made by the model.\n\nThese technical terms are used in the context of evaluating the performance of a machine learning model, specifically a Feed-Forward model, in this paper.",
+      "sources": [
+        {
+          "section": "5. Results and Analysis",
+          "section_type": "RESULTS",
+          "text_preview": "high. Equation (2) depicts the mathematical formula of the precision matrix.\nThe recall matrix measures how many predictions our model labels correctl...",
+          "score": 0.328,
+          "pages": "[7, 8, 9]"
+        },
+        {
+          "section": "ScienceDirect",
+          "section_type": "BODY",
+          "text_preview": "Procedia Computer Science 218 (2023) 1384–1393",
+          "score": 0.283,
+          "pages": "[1]"
+        },
+        {
+          "section": "5. Results and Analysis",
+          "section_type": "RESULTS",
+          "text_preview": "𝐴𝐴 (𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴𝐴) =\n்௉ା்ே\n்௉ା்ேାி௉ାிே\n(1)\n𝑃𝑃 (𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃𝑃) =\n்௉\n்௉ାி௉\n(2)\nJyotishman Bora et al. / Procedia Computer Science 218 (2023) 138...",
+          "score": 0.282,
+          "pages": "[7, 8, 9]"
+        },
+        {
+          "section": "1. Introduction",
+          "section_type": "BODY",
+          "text_preview": "lightweight. This paper discusses the entire procedure of developing our model, along with the results and analysis of\nperformance.\nFig. 1. Flowchart ...",
+          "score": 0.266,
+          "pages": "[2, 3]"
+        },
+        {
+          "section": "5. Results and Analysis",
+          "section_type": "RESULTS",
+          "text_preview": "performance of the model in real-time recognition.\nThe accuracy matrix measures correctly predicted labels by the model from the complete dataset. Equ...",
+          "score": 0.257,
+          "pages": "[7, 8, 9]"
+        }
+      ],
+      "jargon": [
+        "F1 Score",
+        "False Negative (FN)",
+        "False Positive (FP)",
+        "Precision Matrix",
+        "Recall Matrix",
+        "True Negative (TN)",
+        "True Positive (TP)",
+        "classification",
+        "machine learning"
+      ]
+    }
+  ]
+}

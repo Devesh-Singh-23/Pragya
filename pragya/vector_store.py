@@ -143,17 +143,24 @@ def list_papers() -> list[dict]:
     for col in collections:
         if col.name.startswith("paper_"):
             paper_id = col.name.replace("paper_", "")
-            # Get a sample metadata to extract paper title
-            sample = col.peek(limit=1)
-            title = "Unknown"
-            if sample["metadatas"]:
-                title = sample["metadatas"][0].get("paper_title", "Unknown")
-            
-            papers.append({
-                "paper_id": paper_id,
-                "title": title,
-                "chunk_count": col.count(),
-            })
+            try:
+                # Get a sample metadata to extract paper title
+                sample = col.peek(limit=1)
+                title = "Unknown"
+                if sample["metadatas"]:
+                    title = sample["metadatas"][0].get("paper_title", "Unknown")
+                
+                papers.append({
+                    "paper_id": paper_id,
+                    "title": title,
+                    "chunk_count": col.count(),
+                })
+            except Exception:
+                # Collection is corrupted (data missing on disk) — remove it
+                try:
+                    client.delete_collection(col.name)
+                except Exception:
+                    pass
     
     return papers
 

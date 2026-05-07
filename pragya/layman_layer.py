@@ -46,8 +46,13 @@ JARGON_TERMS = {
 def detect_jargon(text: str) -> list[str]:
     """Scan text for technical jargon terms.
     
+    Detects terms from:
+      1. The curated JARGON_TERMS dictionary
+      2. Long academic-sounding words (suffix patterns)
+      3. Bold terms in LLM responses (e.g. **Term:** or **Term**)
+    
     Args:
-        text: Text to scan (typically retrieved context chunks)
+        text: Text to scan (typically retrieved context or LLM response)
         
     Returns:
         List of detected jargon terms found in the text
@@ -69,6 +74,16 @@ def detect_jargon(text: str) -> list[str]:
             if any(word_lower.endswith(suffix) for suffix in 
                    ['ization', 'isation', 'ological', 'ometric', 'odynamic']):
                 found.append(word)
+    
+    # Extract bold terms that look like definitions (e.g. **Deep Neural Network:** or **MediaPipe:**)
+    # Only match bold text followed by a colon — this filters out conversational bold like **How does it work**
+    bold_terms = re.findall(r'\*\*([^*]+?)\*\*\s*:', text)
+    for bt in bold_terms:
+        clean = bt.strip().rstrip(':').strip()
+        # Skip very short or very long matches, and pure numbers
+        if 2 <= len(clean) <= 50 and not clean.isdigit():
+            if clean.lower() not in [t.lower() for t in found]:
+                found.append(clean)
     
     return sorted(set(found))
 

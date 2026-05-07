@@ -1,0 +1,125 @@
+{
+  "paper_id": "8978b8e26502",
+  "paper_title": "Sign Language Detection and Recognition Using Media Pipe and Deep Learning Algorithm",
+  "updated_at": "2026-05-07T23:09:06.571486",
+  "messages": [
+    {
+      "role": "user",
+      "content": "explain the paper in detail"
+    },
+    {
+      "role": "assistant",
+      "content": "The paper \"Sign Language Detection and Recognition Using Media Pipe and Deep Learning Algorithm\" presents a novel approach to sign language recognition using a combination of MediaPipe and deep learning techniques.\n\n**Methodology**\n\nThe authors propose a framework for sign language detection and recognition, which involves three main stages: data collection, model development, and evaluation. The methodology is as follows:\n\n1. **Data Collection Procedure**: The researchers collected a dataset of sign language videos featuring various signs and gestures. These videos were then processed to extract the coordinates of the hands and fingers, which served as the input features for the model.\n2. **Model Development**: A deep learning-based approach was employed to develop the sign language recognition model. The authors used MediaPipe, a framework developed by Google, to track the hand landmarks (i.e., the positions of the fingers and palms) in real-time video streams. These coordinates were then fed into a deep neural network (DNN) for training.\n3. **Evaluation**: The trained model was evaluated using a set of test videos featuring different signs and gestures. The authors calculated the loss and accuracy metrics over 20 consecutive training steps to assess the performance of the model.\n\n**Key Findings**\n\nThe paper presents several key findings, including:\n\n1. **Sign Language Detection**: The proposed framework successfully detected sign language in real-time video streams using MediaPipe.\n2. **Hand Landmark Tracking**: The authors demonstrated accurate tracking of hand landmarks (finger and palm positions) in real-time videos.\n3. **Deep Learning-based Recognition**: The DNN-based approach achieved high accuracy rates for recognizing sign language gestures.\n\n**Conclusion**\n\nThe paper demonstrates the potential of combining MediaPipe with deep learning techniques for sign language detection and recognition. The proposed framework shows promise for real-world applications, such as assistive technologies for individuals who are deaf or hard-of-hearing. Future work could involve expanding the dataset to include more diverse signs and gestures, as well as exploring other deep learning architectures for improved performance.\n\n**References**\n\n1. E J Honesty Praiselin et al (2024). Sign Language Detection and Recognition Using Media Pipe and Deep Learning Algorithm. International Journal of Scientific Research in Science and Technology, 11(2), 123-130.\n2. Google (n.d.). MediaPipe. Retrieved from <https://mediapipe.dev/>\n\nPlease note that this summary is based on the provided context only, and it may not cover all aspects of the paper.",
+      "sources": [
+        {
+          "section": "approach of sign language recognition using the",
+          "section_type": "METHODOLOGY",
+          "text_preview": "Scientific Research in Science and Technology\n(IJSRST), Online ISSN : 2395-602X, Print ISSN : 23956011, Volume 11 Issue 2, pp. 123-130, March-April\n20...",
+          "score": 0.316,
+          "pages": "[8, 9]"
+        },
+        {
+          "section": "Preamble",
+          "section_type": "BODY",
+          "text_preview": "International Journal of Scientific Research in Science and Technology\nAvailable online at : www.ijsrst.com\nPrint ISSN: 2395-6011 | Online ISSN: 2395-...",
+          "score": 0.313,
+          "pages": "[1]"
+        },
+        {
+          "section": "model, which depicts how often the prediction is",
+          "section_type": "METHODOLOGY",
+          "text_preview": "128\nE J Honesty Praiselin et al Int J Sci Res Sci & Technol. March-April-2024, 11 (2) : 123-130",
+          "score": 0.249,
+          "pages": "[7, 8]"
+        },
+        {
+          "section": "Model Development:",
+          "section_type": "METHODOLOGY",
+          "text_preview": "coordinates. These coordinates were the data points\nusing which the final dataset was generated and used\nto train the final model.\nInternational Journ...",
+          "score": 0.245,
+          "pages": "[5, 6, 7]"
+        },
+        {
+          "section": "framework to get multi-hand landmarks and used",
+          "section_type": "METHODOLOGY",
+          "text_preview": "iii.\nData Collection Procedure:\nx.",
+          "score": 0.217,
+          "pages": "[4, 5]"
+        }
+      ],
+      "jargon": [
+        "Data Collection Procedure",
+        "Deep Learning-based Recognition",
+        "Evaluation",
+        "Hand Landmark Tracking",
+        "Model Development",
+        "Sign Language Detection",
+        "algorithm",
+        "architecture",
+        "deep learning",
+        "epoch",
+        "framework",
+        "methodology",
+        "neural network",
+        "novel"
+      ]
+    },
+    {
+      "role": "user",
+      "content": "give me some technical terms used in this"
+    },
+    {
+      "role": "assistant",
+      "content": "Based on the provided context from the paper, some technical terms used are:\n\n1. MediaPipe: A framework introduced by Google for building machine learning pipelines for time-series data such as video, audio, etc.\n2. ReLU (Rectified Linear Unit): An activation function used in the hidden layers of the deep learning algorithm.\n3. Softmax: An activation function used in the output layer of the deep learning algorithm.\n4. Sequential model: A type of neural network architecture implemented in this work.\n\nThese technical terms are mentioned in sections VI, VII, and VIII of the paper, specifically in the context of data conversion, evaluation, and results analysis.",
+      "sources": [
+        {
+          "section": "model,",
+          "section_type": "METHODOLOGY",
+          "text_preview": "VI. Data Conversion\nannotation or manually label the data.\ni.\nDetection of hand landmarks using MediaPipe\nv.\nData Preprocessing:\nMediaPipe framework i...",
+          "score": 0.274,
+          "pages": "[5]"
+        },
+        {
+          "section": "evaluation.",
+          "section_type": "EVALUATION",
+          "text_preview": "vi.\nData Augmentation:\ndemanding machine learning frameworks, MediaPipe\nTo increase the diversity of your dataset, apply data\ncan run efficiently, mai...",
+          "score": 0.231,
+          "pages": "[5]"
+        },
+        {
+          "section": "Deep Learning Algorithm",
+          "section_type": "BODY",
+          "text_preview": "images for the words formed\nThis group of people have developed their language to\ncommunicate among themselves, known to us as Sign\nThe approach inclu...",
+          "score": 0.23,
+          "pages": "[1, 2]"
+        },
+        {
+          "section": "Preamble",
+          "section_type": "BODY",
+          "text_preview": "International Journal of Scientific Research in Science and Technology\nAvailable online at : www.ijsrst.com\nPrint ISSN: 2395-6011 | Online ISSN: 2395-...",
+          "score": 0.23,
+          "pages": "[1]"
+        },
+        {
+          "section": "Results and Analysis",
+          "section_type": "RESULTS",
+          "text_preview": "the training process. A ReLU activation function was\nTo test the data open the webcam and give sign in\nused in the hidden layers, and a Softmax activa...",
+          "score": 0.228,
+          "pages": "[7]"
+        }
+      ],
+      "jargon": [
+        "algorithm",
+        "architecture",
+        "deep learning",
+        "framework",
+        "machine learning",
+        "methodology",
+        "neural network",
+        "pipeline",
+        "preprocessing",
+        "robust"
+      ]
+    }
+  ]
+}

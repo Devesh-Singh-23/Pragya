@@ -70,6 +70,8 @@ def save_chat(paper_id: str, messages: list[dict], paper_title: str = "Unknown")
             clean_msg["readability"] = msg["readability"]
         if msg.get("sources"):
             clean_msg["sources"] = msg["sources"]
+        if msg.get("jargon"):
+            clean_msg["jargon"] = msg["jargon"]
         clean_messages.append(clean_msg)
 
     data = {
