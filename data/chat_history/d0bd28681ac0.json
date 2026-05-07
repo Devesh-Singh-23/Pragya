@@ -1,0 +1,60 @@
+{
+  "paper_id": "d0bd28681ac0",
+  "paper_title": "Global Warming: Causes, Effects and Solutions",
+  "updated_at": "2026-05-07T21:44:49.630903",
+  "messages": [
+    {
+      "role": "user",
+      "content": "what is global warming?"
+    },
+    {
+      "role": "assistant",
+      "content": "**What's the Big Deal About Global Warming?**\n\nImagine you're trying to keep your cozy home warm on a chilly day. You turn up the thermostat, and the heater kicks in, making your place nice and toasty. Now, imagine that same process happening for our entire planet! 🏠🔥\n\nGlobal warming is like a big, natural blanket that keeps our Earth warm enough for life to thrive. It's what happens when certain gases in the air, like carbon dioxide, trap heat from the sun, keeping it from escaping into space. This natural process has been going on for centuries, and it's actually important for us to have some warmth.\n\nThe problem is, humans are releasing even more of these gases into the air – think of it like adding extra blankets to your home! 🏠🔥 This human-enhanced greenhouse effect is what's causing global warming. It's like our planet is getting too many cozy layers, making it get hotter and hotter.\n\n**Why Should I Care?**\n\nGlobal warming can lead to some serious issues:\n\n* Rising sea levels might flood coastal cities\n* Extreme weather events, like intense storms or droughts, could become more common\n* Changes in climate might affect the food we eat and the air we breathe\n\nSo, what can you do?\n\n* Reduce your energy consumption by using public transport, carpooling, or driving electric vehicles 🚗\n* Use renewable energy sources, like solar power, for your home or business ⛅️\n* Plant more trees and support reforestation efforts to absorb carbon dioxide 🌳\n\n**Remember: Every Small Action Counts!**\n\nYou might be thinking, \"But I'm just one person – what can I do?\" Well, imagine if everyone made a few small changes. It would add up to make a BIG difference! 💪 So, start by taking care of your own \"eco-footprint\" and encouraging others to do the same.\n\nThat's global warming in a nutshell (or a cozy blanket)! 🏠🔥",
+      "readability": {
+        "flesch_reading_ease": 62.2,
+        "grade_level": 8.8,
+        "avg_sentence_length": 16.8,
+        "difficult_words": 66,
+        "rating": "Easy",
+        "emoji": "🟢"
+      },
+      "sources": [
+        {
+          "section": "II. Greenhouse Effect",
+          "section_type": "BODY",
+          "text_preview": "centuries, resulting in global warming. To understand\nglobal warming, it is first necessary to become familiar\nwith the greenhouse effect. As Fig.1 de...",
+          "score": 0.739,
+          "pages": "[1]"
+        },
+        {
+          "section": "I. Introduction",
+          "section_type": "BODY",
+          "text_preview": "atmosphere and surface.\nThe greenhouse effect, combined with increasing\nlevels of greenhouse gases and the resulting global\nwarming,\nis\nexpected\nto\nha...",
+          "score": 0.682,
+          "pages": "[1, 2]"
+        },
+        {
+          "section": "VI. Effects on Living Beings",
+          "section_type": "BODY",
+          "text_preview": "global warming, including more common and longer\ndry periods, placing further pressure on their survival\n[14].",
+          "score": 0.667,
+          "pages": "[4, 5]"
+        },
+        {
+          "section": "IV. Causes of Global warming",
+          "section_type": "BODY",
+          "text_preview": "Predicting the consequences of global warming is\none of the most difficult tasks faced by the climate\nresearchers. This is due to the fact that natura...",
+          "score": 0.654,
+          "pages": "[3, 4]"
+        },
+        {
+          "section": "Global Warming: Causes, Effects and Solutions",
+          "section_type": "BODY",
+          "text_preview": "climate of the planet. Fossil fuels are being continuously used to produce electricity. The burning of these fuels produces\ngases like carbon dioxide,...",
+          "score": 0.653,
+          "pages": "[1]"
+        }
+      ]
+    }
+  ]
+}

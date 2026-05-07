@@ -1,0 +1,166 @@
+{
+  "paper_id": "c5289cb80cf0",
+  "paper_title": "Real-Time Indian Sign Language Interpretation by Deep Neural Network and MediaPipe Framework",
+  "updated_at": "2026-05-07T21:41:54.595144",
+  "messages": [
+    {
+      "role": "user",
+      "content": "explain the paper"
+    },
+    {
+      "role": "assistant",
+      "content": "❌ Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+      "readability": {
+        "flesch_reading_ease": 10.6,
+        "grade_level": 14.3,
+        "avg_sentence_length": 10.0,
+        "difficult_words": 4,
+        "rating": "Complex",
+        "emoji": "🔴"
+      },
+      "sources": [
+        {
+          "section": "signs",
+          "section_type": "BODY",
+          "text_preview": "an average accuracy of 99%. The abbreviations TP (True\nPositive), TN (True Negative), FP (False Positive), and FN\n(False Negative) are used in the cor...",
+          "score": 0.2,
+          "pages": "[3, 4]"
+        },
+        {
+          "section": "classes",
+          "section_type": "BODY",
+          "text_preview": "E. Data Collection Conditions and Diversity",
+          "score": 0.164,
+          "pages": "[3]"
+        },
+        {
+          "section": "signs",
+          "section_type": "BODY",
+          "text_preview": "distances and angles relative to the camera. Lighting conditions included both indoor fluorescent and natural daylight, and\nhand positioning varied sl...",
+          "score": 0.158,
+          "pages": "[3, 4]"
+        },
+        {
+          "section": "Neural Network",
+          "section_type": "BODY",
+          "text_preview": "positives carry a high cost. Recall (Eq. 3)—true positives over\nactual positives—matters most if false negatives are costly.\nFinally, the F1 score (Eq...",
+          "score": 0.146,
+          "pages": "[4]"
+        },
+        {
+          "section": "axis coordinates",
+          "section_type": "BODY",
+          "text_preview": "All ISL letters and digits were encoded as feature vectors\nsupporting both one- and two-hand gestures. For single-hand\nsigns (0–9, C, I, L, O, U, V), ...",
+          "score": 0.144,
+          "pages": "[3]"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "explain the abstract"
+    },
+    {
+      "role": "assistant",
+      "content": "❌ Error: 500 Server Error: Internal Server Error for url: http://localhost:11434/api/generate",
+      "readability": {
+        "flesch_reading_ease": 10.6,
+        "grade_level": 14.3,
+        "avg_sentence_length": 10.0,
+        "difficult_words": 4,
+        "rating": "Complex",
+        "emoji": "🔴"
+      },
+      "sources": [
+        {
+          "section": "classes",
+          "section_type": "BODY",
+          "text_preview": "E. Data Collection Conditions and Diversity",
+          "score": 0.161,
+          "pages": "[3]"
+        },
+        {
+          "section": "Fig. 10: Real-time implementation of the model",
+          "section_type": "BODY",
+          "text_preview": "signers, cameras, and lighting.\nEnd-to-end translation: study seq2seq and transformer\narchitectures that map landmark sequences directly to natural\nla...",
+          "score": 0.149,
+          "pages": "[5, 6]"
+        },
+        {
+          "section": "modeling,”",
+          "section_type": "METHODOLOGY",
+          "text_preview": "Procedia\nComputer\nScience,\nvol.\n189,\npp.\n76–83,\n2021.\n[Online].\nAvailable:\nhttps://doi.org/10.1016/j.procs.2021.05.071\nMediaPipe reliably supplies the...",
+          "score": 0.124,
+          "pages": "[6]"
+        },
+        {
+          "section": "modeling,”",
+          "section_type": "METHODOLOGY",
+          "text_preview": "and optionally audio/text context. Explore early, late, and\nintermediate fusion strategies and attention mechanisms to\nweight modalities adaptively.\nS...",
+          "score": 0.119,
+          "pages": "[6]"
+        },
+        {
+          "section": "handed handsigns",
+          "section_type": "BODY",
+          "text_preview": "D. Generated Data",
+          "score": 0.083,
+          "pages": "[3]"
+        }
+      ]
+    },
+    {
+      "role": "user",
+      "content": "explain the abstract"
+    },
+    {
+      "role": "assistant",
+      "content": "**Imagine you're trying to have a conversation with someone who uses sign language.**\n\nYou want to understand what they're saying, but you don't speak their language (literally!). That's where this research comes in.\n\nThe goal is to create a super-smart computer system that can translate Indian Sign Language (ISL) into spoken or written words in real-time! 🎯\n\nHere's the cool part: this system will use a combination of cameras, lighting, and special software to detect hand and face landmarks (think of it like a digital fingerprint). Then, it'll use powerful algorithms (like recipes for your computer) to analyze these landmarks and figure out what the person is signing.\n\nTo make it even more accurate, the researchers suggest using:\n\n* **Attention mechanisms** (like focusing on specific parts of the conversation)\n* **Graph Neural Networks** (to understand how hand movements relate to each other)\n* **Pre-training** (like teaching a student by showing them examples)\n\nThe end result? A system that can interpret ISL in real-time, allowing people who are deaf or hard-of-hearing to communicate more easily with those who don't speak their language.\n\n**This means that in your daily life, you might see this technology used in apps, devices, or even smart glasses that help facilitate sign language conversations! 🔬**\n\nThat's the basic idea behind this research – making communication more accessible and empowering for everyone! 💡",
+      "readability": {
+        "flesch_reading_ease": 42.7,
+        "grade_level": 12.7,
+        "avg_sentence_length": 21.8,
+        "difficult_words": 58,
+        "rating": "Moderate",
+        "emoji": "🟡"
+      },
+      "sources": [
+        {
+          "section": "classes",
+          "section_type": "BODY",
+          "text_preview": "E. Data Collection Conditions and Diversity",
+          "score": 0.161,
+          "pages": "[3]"
+        },
+        {
+          "section": "Fig. 10: Real-time implementation of the model",
+          "section_type": "BODY",
+          "text_preview": "signers, cameras, and lighting.\nEnd-to-end translation: study seq2seq and transformer\narchitectures that map landmark sequences directly to natural\nla...",
+          "score": 0.149,
+          "pages": "[5, 6]"
+        },
+        {
+          "section": "modeling,”",
+          "section_type": "METHODOLOGY",
+          "text_preview": "Procedia\nComputer\nScience,\nvol.\n189,\npp.\n76–83,\n2021.\n[Online].\nAvailable:\nhttps://doi.org/10.1016/j.procs.2021.05.071\nMediaPipe reliably supplies the...",
+          "score": 0.124,
+          "pages": "[6]"
+        },
+        {
+          "section": "modeling,”",
+          "section_type": "METHODOLOGY",
+          "text_preview": "and optionally audio/text context. Explore early, late, and\nintermediate fusion strategies and attention mechanisms to\nweight modalities adaptively.\nS...",
+          "score": 0.119,
+          "pages": "[6]"
+        },
+        {
+          "section": "handed handsigns",
+          "section_type": "BODY",
+          "text_preview": "D. Generated Data",
+          "score": 0.083,
+          "pages": "[3]"
+        }
+      ]
+    }
+  ]
+}

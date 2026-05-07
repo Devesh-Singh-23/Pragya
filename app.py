@@ -12,6 +12,7 @@ import streamlit as st
 
 from pragya.rag_pipeline import PragyaPipeline
 from pragya.layman_layer import calculate_readability
+from pragya.chat_store import load_chat, save_chat, delete_chat
 
 
 # =============================================================================
@@ -151,6 +152,7 @@ def init_session_state():
         "messages": [],
         "current_paper_id": None,
         "current_paper_title": None,
+        "_previous_paper_id": None,   # Track paper switches
         "mode": "layman",
         "papers": [],
         "ollama_status": None,
@@ -161,6 +163,27 @@ def init_session_state():
 
 
 init_session_state()
+
+
+def switch_paper_chat(new_paper_id: str, new_paper_title: str):
+    """Save current chat and load chat for the new paper."""
+    old_id = st.session_state._previous_paper_id
+
+    # Save the outgoing paper's chat (if any messages exist)
+    if old_id and old_id != new_paper_id and st.session_state.messages:
+        save_chat(
+            paper_id=old_id,
+            messages=st.session_state.messages,
+            paper_title=st.session_state.current_paper_title or "Unknown",
+        )
+
+    # Load the incoming paper's chat
+    if new_paper_id != old_id:
+        st.session_state.messages = load_chat(new_paper_id)
+
+    st.session_state.current_paper_id = new_paper_id
+    st.session_state.current_paper_title = new_paper_title
+    st.session_state._previous_paper_id = new_paper_id
 
 
 # =============================================================================
@@ -225,10 +248,8 @@ with st.sidebar:
             
             try:
                 result = pipeline.ingest_paper(tmp_path, progress_callback=update_progress)
-                st.session_state.current_paper_id = result["paper_id"]
-                st.session_state.current_paper_title = result["title"]
                 st.session_state.papers = pipeline.get_papers()
-                st.session_state.messages = []  # Clear chat for new paper
+                switch_paper_chat(result["paper_id"], result["title"])
                 
                 st.success(f"✅ **{result['title']}**")
                 st.caption(
@@ -266,12 +287,25 @@ with st.sidebar:
             options=list(paper_options.keys()),
             index=default_idx,
         )
-        st.session_state.current_paper_id = paper_options[selected_title]
-        st.session_state.current_paper_title = selected_title
+        selected_paper_id = paper_options[selected_title]
+        switch_paper_chat(selected_paper_id, selected_title)
         
         for p in papers:
             with st.container():
                 st.caption(f"📄 {p['title'][:40]}... — {p['chunk_count']} chunks")
+        
+        # --- Chat Controls ---
+        st.divider()
+        st.markdown("### 💬 Chat")
+        msg_count = len(st.session_state.messages)
+        if msg_count > 0:
+            st.caption(f"{msg_count} message{'s' if msg_count != 1 else ''} in this conversation")
+            if st.button("🗑️ Clear Chat", use_container_width=True):
+                st.session_state.messages = []
+                delete_chat(selected_paper_id)
+                st.rerun()
+        else:
+            st.caption("No messages yet — start chatting!")
     else:
         st.info("No papers uploaded yet. Upload a PDF to get started!")
     
@@ -424,3 +458,10 @@ if prompt := st.chat_input(
                 "sources": result["sources"],
                 "readability": readability,
             })
+            
+            # Persist chat to disk
+            save_chat(
+                paper_id=st.session_state.current_paper_id,
+                messages=st.session_state.messages,
+                paper_title=st.session_state.current_paper_title or "Unknown",
+            )

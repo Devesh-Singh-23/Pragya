@@ -1,0 +1,9 @@
+@echo off
+echo [*] Starting Ollama server in the background...
+start /b ollama serve
+
+echo [*] Waiting for Ollama to initialize...
+timeout /t 3 /nobreak >nul
+
+echo [*] Starting Streamlit application...
+.\venv\Scripts\python.exe -m streamlit run app.py
